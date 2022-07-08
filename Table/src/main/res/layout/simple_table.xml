@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="wrap_content"
+    android:layout_height="36dp"
+    android:background="@color/table_header_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/value"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textSize="13sp"
+        android:text="排名"
+        tools:text="排名" />
+
+    <View
+        android:id="@+id/dividerRight"
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:layout_gravity="right" />
+
+    <View
+        android:id="@+id/dividerBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="bottom" />
+
+
+</FrameLayout>

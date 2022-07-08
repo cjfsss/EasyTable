@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TableViewSize" >
+        <item name="column_header_height" >36dp</item>
+        <item name="row_header_width" >48dp</item>
+    </style>
+    <style name="TableViewTransparent" parent="TableViewSize">
+        <item name="selected_color" >@android:color/transparent</item>
+        <item name="shadow_color" >@android:color/transparent</item>
+        <item name="separator_color" >@android:color/transparent</item>
+        <item name="unselected_color" >@android:color/transparent</item>
+    </style>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="table_header_bg">#F1FAFF</color>
+    <color name="table_single_bg" >#FAFBFD</color>
+</resources>
