@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.library'
 }
-apply from :'../maven-publish-plus.gradle'
+//apply from :'../maven-publish-plus.gradle'
 
 android {
     compileSdk 32
