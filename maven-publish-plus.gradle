@@ -1,0 +1,50 @@
+apply plugin: 'maven-publish'
+// apply from :'../maven-publish-plus.gradle'
+// 生成文档注释
+task androidJavadocs(type: Javadoc) {
+    failOnError = false
+    source = android.sourceSets.main.java.srcDirs  // 设置源码所在的位置
+    ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+    classpath += files(ext.androidJar)
+}
+
+// 将文档打包成jar 生成javadoc.jar
+task androidJavadocsJar(type: Jar) {
+    // 指定文档名称
+    archiveClassifier.set('javadoc')
+    from androidJavadocs.destinationDir
+}
+
+// 将源码打包 生成sources.jar
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+}
+
+task comps {
+    afterEvaluate {
+        println("Components: " + components*.name)
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact(androidSourcesJar)  //将源码打包进aar
+            artifact(androidJavadocsJar) //将注释打包进aar
+            afterEvaluate {
+                from components.release
+            }
+            groupId = 'energy'
+            artifactId = 'table'
+            version = '0.0.1'
+        }
+    }
+    repositories {
+        maven {
+//            非 https 的仓库地址，需要设置 allowInsecureProtocol true
+//            allowInsecureProtocol true
+            url = "file:///C:/Users/Administrator/.m2/repository"
+        }
+    }
+}
